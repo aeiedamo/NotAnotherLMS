@@ -4,11 +4,11 @@ require('dotenv').config();
 
 const registerUser = async (req, res) => {
     try {
-        const { gmail, telegram, role } = req.body;
+        const { name, gmail, telegram, role } = req.body;
         const existingUser = await User.findOne({ where: { gmail } });
         if (existingUser)
             return res.status(400).json({ message: 'User already exists' });
-        const user = await User.create({ gmail, telegram, role,
+        const user = await User.create({ name, gmail, telegram, role,
             passwordHash: 'oauth-only'
         });
         return res.status(201).json({ message: 'User reigstered successfully', user });

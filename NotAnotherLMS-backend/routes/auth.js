@@ -1,9 +1,14 @@
 const express = require("express");
-const { registerUser, loginUser } = require("../controllers/authController");
-const { verifyToken, roleAuthorization } = require('../middleware/authRole');
+const passport = require('passport');
 const router = express.Router();
 
-router.post("/register", verifyToken, roleAuthorization(['admin']), registerUser);
-router.post("/login", loginUser);
+
+router.get('/google', passport.authenticate('google', { scope: ['profile', 'email'] }));
+
+
+router.get('/google/callback', passport.authenticate('google', { failureRedirect: '/' }), (req, res) => {
+    res.redirect('/dashboard');
+});
+
 
 module.exports = router;

@@ -1,15 +1,35 @@
 const express = require("express");
-const authRoutes = require("./routes/auth");
-const LectureRoutes = require('./routes/lecture');
-const sequelize = require("./config/config");
+const bodyParser = require("body-parser");
+const cors = require('cors');
+const passport = require('./config/passport');
+const session = require('express-session');
+const authRoutes = require('./routes/auth');
+const userRoutes = require('./routes/user');
+const courseRoutes = require('./routes/course');
+const lectureRoutes = require("./routes/lecture");
+const sequelize = require('./config/config');
 require("dotenv").config();
 
 const app = express();
 
-app.use(express.json());
+app.use(cors());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+
+
+app.use(session({
+  secret: process.env.SESSION_SECRET,
+  resave: false,
+  saveUninitialized: false,
+}));
+
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.use("/api/auth", authRoutes);
-app.use('/api/lectures', LectureRoutes);
+app.use('/api/user', userRoutes);
+app.use("/api/courses", courseRoutes);
+app.use("/api/lectures", lectureRoutes);
 
 sequelize
   .sync()
@@ -20,7 +40,12 @@ sequelize
     console.error("Error syncing database: ", err);
   });
 
-const PORT = process.env.PORT || 5000;
+app.use((error, req, res, next) => {
+  console.error(error.stack);
+  res.status(500).send({ message: "An error occurred within Middleware!", error: error.message });
+});
+
+const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Server is listenning at port ${PORT}`);
 });

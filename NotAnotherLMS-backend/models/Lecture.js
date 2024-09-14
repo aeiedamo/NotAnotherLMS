@@ -1,30 +1,24 @@
-const { DataType, DataTypes } = require('sequelize');
+const { DataTypes } = require('sequelize');
 const sequelize = require('../config/config');
-const User = require('./User');
 
 const Lecture = sequelize.define('Lecture', {
+    id: {
+        type: DataTypes.INTEGER,
+        autoIncrement: true,
+        primaryKey: true,
+    },
     title: {
         type: DataTypes.STRING,
         allowNull: false,
     },
-    description: {
+    content: {
         type: DataTypes.TEXT,
+        allowNull: true,
     },
-    videoURL: {
-        type: DataTypes.STRING,
+    courseID: {
+        type: DataTypes.INTEGER,
         allowNull: false,
     },
-    instructorID: {
-        type: DataTypes.INTEGER,
-        references: {
-            model: User,
-            key: 'id'
-        }
-    }
-},
-    {
-        timestamps: true,
-    }
-);
+});
 
 module.exports = Lecture;
