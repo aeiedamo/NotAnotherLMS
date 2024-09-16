@@ -1,4 +1,5 @@
 const Assignment = require("../models/Assignment");
+const { bot } = require("../services/telegramService");
 
 const createAssignment = async (req, res) => {
   try {
@@ -9,7 +10,8 @@ const createAssignment = async (req, res) => {
       dueDate,
       courseID,
     });
-
+    var message = `New Assignment Created: ${title}\nDescription: ${description}\nDue Date: ${dueDate}`;
+    bot.notify(message);
     res.status(201).send(assignment);
   } catch (error) {
     console.error("Error in createAssignment:", error);

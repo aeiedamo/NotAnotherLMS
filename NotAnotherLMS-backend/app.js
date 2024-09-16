@@ -8,7 +8,6 @@ const userRoutes = require('./routes/user');
 const courseRoutes = require('./routes/course');
 const lectureRoutes = require("./routes/lecture");
 const assignmentRoutes = require('./routes/assignment');
-const notificationsRoutes = require('../routes/notification');
 const sequelize = require('./config/config');
 require("dotenv").config();
 
@@ -33,7 +32,6 @@ app.use('/api/user', userRoutes);
 app.use("/api/courses", courseRoutes);
 app.use("/api/lectures", lectureRoutes);
 app.use("/api/assignments", assignmentRoutes);
-app.use("/api/notifications", notificationsRoutes);
 
 sequelize
   .sync()

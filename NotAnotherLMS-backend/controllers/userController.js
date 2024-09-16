@@ -21,7 +21,7 @@ const getProfile = async (req, res) => {
 
 const updateProfile = async (req, res) => {
   try {
-    const { name, email } = req.body;
+    const { name, email, telegram, role } = req.body;
     const user = await User.findByPk(req.user.id);
     if (!user) {
       console.error("User not found");
@@ -29,6 +29,8 @@ const updateProfile = async (req, res) => {
     }
     user.name = name || user.name;
     user.email = email || user.email;
+    user.telegram = telegram || user.telegram;
+    user.role = role || user.role;
     await user.save();
     res.send(user);
   } catch (error) {

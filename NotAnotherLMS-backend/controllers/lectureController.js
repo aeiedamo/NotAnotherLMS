@@ -1,10 +1,13 @@
 const Lecture = require('../models/Lecture');
+const { bot } = require("../services/telegramService");
 
 const createLecture = async (req, res) => {
     try {
-        const { title, content, courseID } = req.body;
-        const lecture = await Lecture.create({ title, content, courseID });
+        const { title, description, courseID } = req.body;
+        const lecture = await Lecture.create({ title, description, courseID });
 
+        var message = `New Lecture Created: ${title}\nDescription: ${description}\n`;
+        bot.notify(message);
         res.status(201).send(lecture);
     }
     catch (error) {

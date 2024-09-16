@@ -15,7 +15,7 @@ const Course = sequelize.define(
     },
     description: {
       type: DataTypes.TEXT,
-      allowNull: true,
+      allowNull: false,
     },
     instructorID: {
       type: DataTypes.INTEGER,
@@ -23,8 +23,8 @@ const Course = sequelize.define(
     },
     playlistURL: {
       type: DataTypes.STRING,
-      allowNull: true,
-    },
+      allowNull: false
+    }
   },
   {
     timestamps: true,
