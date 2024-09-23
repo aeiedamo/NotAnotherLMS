@@ -29,6 +29,11 @@ const Dashboard = () => {
                 <h2>Lectures</h2>
               </Box>
             </Link>
+            <Link to="/assignments" className="box-link">
+              <Box className="box">
+                <h2>Assignments</h2>
+              </Box>
+            </Link>
           </Box>
         </div>
       </BaseStyles>

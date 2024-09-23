@@ -4,6 +4,8 @@ import LandingPage from "./pages/LandingPage";
 import AuthPage from "./pages/AuthPage";
 import Dashboard from "./pages/Dashboard";
 import Courses from "./pages/Courses";
+import Lectures from "./pages/Lectures";
+import Assignments from "./pages/Assignments";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 import { ThemeProvider, BaseStyles } from "@primer/react";
 
@@ -20,6 +22,8 @@ function App() {
               <Route path="/auth" element={<AuthPage />} />
               <Route path="/dashboard" element={<Dashboard />} />
               <Route path="/courses" element={<Courses />} />
+              <Route path="/lectures" element={<Lectures />} />
+              <Route path="/assignments" element={<Assignments />} />
             </Routes>
           </Router>
         </GoogleOAuthProvider>
@@ -29,4 +33,3 @@ function App() {
 }
 
 export default App;
-

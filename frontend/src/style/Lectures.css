@@ -1,17 +1,17 @@
-/* src/style/Courses.css */
-.courses-page {
+/* src/style/Lectures.css */
+.lectures-page {
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 20px;
 }
 
-.courses-header {
+.lectures-header {
   margin-bottom: 20px;
   color: azure;
 }
 
-.courses-panel {
+.lectures-panel {
   background-color: var(--color-bg-canvas, #282c34); /* Fallback color */
   padding: 20px;
   color: var(--color-fg-default, white); /* Fallback color */
@@ -21,7 +21,7 @@
   text-align: center;
 }
 
-.course-item {
+.lecture-item {
   background-color: var(--color-bg-subtle, #3c3f41); /* Fallback color */
   padding: 15px;
   margin: 10px 0;
@@ -32,7 +32,7 @@
   align-items: center;
 }
 
-.add-course-form {
+.add-lecture-form {
   background-color: var(--color-bg-canvas, #282c34); /* Fallback color */
   padding: 20px;
   color: var(--color-fg-default, white); /* Fallback color */
