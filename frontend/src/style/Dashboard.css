@@ -1,0 +1,65 @@
+/* src/style/Dashboard.css */
+.dashboard-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+  margin: 20px;
+  height: 100vh; /* Full viewport height */
+}
+
+.header {
+  background-color: var(--color-bg-canvas, #282c34); /* Fallback color */
+  padding: 20px;
+  color: var(--color-fg-default, white); /* Fallback color */
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.back-button {
+  align-self: flex-start;
+  margin-bottom: 20px;
+}
+
+.btn-small {
+  background-color: var(--color-btn-primary-bg, #61dafb); /* Fallback color */
+  border: none;
+  padding: 5px 10px;
+  color: var(--color-btn-primary-text, white); /* Fallback color */
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  gap: 20px; /* Add some space between the boxes */
+  margin-top: 20px; /* Add margin to the top of the content */
+}
+
+.box-link {
+  text-decoration: none;
+}
+
+.box {
+  background-color: var(--color-bg-canvas, #282c34); /* Fallback color */
+  padding: 40px;
+  color: var(--color-fg-default, white); /* Fallback color */
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.2s;
+  width: 200px; /* Fixed width for the boxes */
+  height: 200px; /* Fixed height for the boxes */
+  margin: 10px; /* Add margin around each box */
+}
+
+.box:hover {
+  transform: scale(1.05);
+}

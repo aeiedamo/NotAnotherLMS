@@ -1,0 +1,35 @@
+/* src/style/Courses.css */
+.courses-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.courses-header {
+  margin-bottom: 20px;
+  color:azure;
+}
+
+.courses-panel {
+  background-color: var(--color-bg-canvas, #282c34); /* Fallback color */
+  padding: 20px;
+  color: var(--color-fg-default, white); /* Fallback color */
+  border-radius: 10px;
+  margin-bottom: 20px;
+  width: 80%;
+  text-align: center;
+}
+
+.back-button {
+  margin-top: 20px;
+}
+
+.btn-small {
+  background-color: var(--color-btn-primary-bg, #61dafb); /* Fallback color */
+  border: none;
+  padding: 5px 10px;
+  color: var(--color-btn-primary-text, white); /* Fallback color */
+  cursor: pointer;
+  font-size: 14px;
+}

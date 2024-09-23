@@ -1,0 +1,44 @@
+/* src/pages/LandingPage.css */
+.landing-page {
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.header {
+  background-color: var(--color-bg-canvas, #282c34); /* Fallback color */
+  padding: 20px;
+  color: var(--color-fg-default, white); /* Fallback color */
+  flex: 1;
+  border-radius: 10px;
+}
+
+.link {
+  left: 50%;
+  right: 50%;
+}
+
+Button .btn-primary {
+  background-color: var(--color-btn-primary-bg, #61dafb); /* Fallback color */
+  border: none;
+  padding: 10px 20px;
+  color: var(--color-btn-primary-text, white); /* Fallback color */
+  cursor: pointer;
+  font-size: 16px;
+  position: absolute;
+}
+
+.features {
+  margin: 20px 0;
+  flex: 1;
+}
+
+.footer {
+  margin-top: 20px;
+  color: var(--color-fg-muted, #888); /* Fallback color */
+  flex-shrink: 0;
+}

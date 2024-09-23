@@ -1,29 +1,16 @@
-import React, { useState } from 'react';
-import { GoogleLogin } from '@react-oauth/google';
+import React from 'react';
+import { Box, Button, Heading } from '@primer/react';
 
 const AuthPage = () => {
-  const [isLogin, setIsLogin] = useState(true);
-
-  const handleGoogleSuccess = (response) => {
-    console.log('Google login success:', response);
-    // Handle Google login success (send token to backend)
-  };
-
-  const handleGoogleFailure = (error) => {
-    console.error('Google login failure:', error);
+  const handleGoogleLogin = () => {
+    window.location.href = "http://localhost:3000/api/auth/google";
   };
 
   return (
-    <div>
-      <h1>{isLogin ? 'Login' : 'Register'}</h1>
-      <GoogleLogin
-        onSuccess={handleGoogleSuccess}
-        onFailure={handleGoogleFailure}
-      />
-      <button onClick={() => setIsLogin(!isLogin)}>
-        {isLogin ? 'Switch to Register' : 'Switch to Login'}
-      </button>
-    </div>
+    <Box display="flex" flexDirection="column" alignItems="center" justifyContent="center" height="100vh">
+      <Heading as="h1" mb={3}>Login</Heading>
+      <Button onClick={handleGoogleLogin}>Login with Google</Button>
+    </Box>
   );
 };
 
