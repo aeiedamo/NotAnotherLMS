@@ -1,4 +1,4 @@
-/* src/pages/LandingPage.css */
+/* src/style/LandingPage.css */
 .landing-page {
   align-items: center;
   text-align: center;
@@ -7,43 +7,84 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  min-height: 100vh; /* Ensure the page takes full viewport height */
 }
-
-.header {
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
   background-color: var(--color-bg-canvas, #282c34); /* Fallback color */
-  padding: 20px;
+  padding: 10px 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000; /* Ensure it stays on top */
+}
+.header {
   color: var(--color-fg-default, white); /* Fallback color */
-  flex: 1;
-  border-radius: 10px;
+  font-size: 1.5rem;
+  text-align: left; /* Align text to the left */
+  flex-grow: 1;
 }
-
-.link {
-  margin: 0 10px; /* Add margin to space out the buttons */
-}
-
 .buttons-container {
   display: flex;
-  justify-content: center;
-  margin-top: 20px;
+  gap: 10px;
 }
-
-Button .btn-primary {
+.link {
+  text-decoration: none;
+}
+.btn-primary {
   background-color: var(--color-btn-primary-bg, #61dafb); /* Fallback color */
   border: none;
   padding: 10px 20px;
   color: var(--color-btn-primary-text, white); /* Fallback color */
   cursor: pointer;
   font-size: 16px;
-  position: relative; /* Changed from absolute to relative */
 }
-
-.features {
-  margin: 20px 0;
-  flex: 1;
+.content {
+  margin-top: 80px; /* Add margin to the top of the content to avoid overlap with fixed header */
+  flex: 1; /* Allow the content to grow and take available space */
 }
-
+.text-and-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10%; /* Increase space between text and image */
+}
+.text-content {
+  max-width: 50%; /* Adjust as needed */
+  font-size: 1.2rem; /* Increase text size */
+}
+.button-container {
+  display: flex;
+  justify-content: center; /* Center the button */
+  margin-top: 20px; /* Add space above the button */
+}
 .footer {
-  margin-top: 20px;
+  background-color: var(--color-bg-canvas, #282c34); /* Fallback color */
   color: var(--color-fg-muted, #888); /* Fallback color */
-  flex-shrink: 0;
+  padding: 10px 20px;
+  width: 100%;
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000; /* Ensure it stays on top */
+}
+.telegram-image {
+  max-width: 50%; /* Adjust as needed */
+  height: auto;
+  border-radius: 15px; /* Add border radius for elegant look */
+}
+.learn-more-button {
+  background-color: var(--color-btn-primary-bg, #61dafb); /* Fallback color */
+  border: none;
+  padding: 10px 20px;
+  color: var(--color-btn-primary-text, white); /* Fallback color */
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 5px; /* Add border radius for elegant look */
 }

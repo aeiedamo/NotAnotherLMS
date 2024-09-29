@@ -1,0 +1,56 @@
+/* src/style/AboutPage.css */
+.about-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+  margin: 20px;
+  height: 100vh; /* Full viewport height */
+}
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  background-color: var(--color-bg-canvas, #282c34); /* Fallback color */
+  padding: 10px 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000; /* Ensure it stays on top */
+}
+.header {
+  color: var(--color-fg-default, white); /* Fallback color */
+  font-size: 1.5rem;
+  text-align: center;
+  flex-grow: 1;
+}
+.buttons-container {
+  display: flex;
+  gap: 10px;
+}
+.link {
+  text-decoration: none;
+}
+.btn-primary {
+  background-color: var(--color-btn-primary-bg, #61dafb); /* Fallback color */
+  border: none;
+  padding: 10px 20px;
+  color: var(--color-btn-primary-text, white); /* Fallback color */
+  cursor: pointer;
+  font-size: 16px;
+}
+.content {
+  margin-top: 50px; /* Add margin to the top of the content to avoid overlap with fixed header */
+  flex: 0.5; /* Allow the content to grow and take available space */
+}
+.content h2 {
+  margin-bottom: 2px; /* Further reduce space below the headings */
+}
+.content p {
+  margin-top: 2px; /* Further reduce space above the paragraphs */
+  margin-bottom: 20px; /* Optional: Add space below paragraphs for readability */
+}

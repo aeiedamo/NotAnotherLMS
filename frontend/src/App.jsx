@@ -6,6 +6,7 @@ import Dashboard from "./pages/Dashboard";
 import Courses from "./pages/Courses";
 import Lectures from "./pages/Lectures";
 import Assignments from "./pages/Assignments";
+import AboutPage from "./pages/AboutPage"; // Import AboutPage
 import { GoogleOAuthProvider } from "@react-oauth/google";
 import { ThemeProvider, BaseStyles } from "@primer/react";
 
@@ -24,6 +25,7 @@ function App() {
               <Route path="/courses" element={<Courses />} />
               <Route path="/lectures" element={<Lectures />} />
               <Route path="/assignments" element={<Assignments />} />
+              <Route path="/about" element={<AboutPage />} /> {/* Add AboutPage route */}
             </Routes>
           </Router>
         </GoogleOAuthProvider>

@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import "../style/LandingPage.css";
 import { ThemeProvider, BaseStyles, Button, Heading, Box } from "@primer/react";
+import telegramImage from "../assets/telegram.avif"; // Correct image path
 
 const LandingPage = () => {
   return (
@@ -12,32 +13,42 @@ const LandingPage = () => {
           <Helmet>
             <title>Welcome to NotAnotherLMS</title>
           </Helmet>
-          <Heading className="header">
-            <h1>Welcome to NotAnotherLMS</h1>
-            <p>Simple yet capable Learning Management System</p>
+          <Box className="header-container">
+            <Heading className="header">NotAnotherLMS</Heading>
             <Box className="buttons-container">
+              <Link to="/about" className="link">
+                <Button className="btn-primary">About</Button>
+              </Link>
+              <Link to="/features" className="link">
+                <Button className="btn-primary">Features</Button>
+              </Link>
               <Link to="/auth" className="link">
                 <Button className="btn-primary">Get Started</Button>
               </Link>
               <Link to="/dashboard" className="link">
-                <Button className="btn-primary">Go to Dashboard</Button>
+                <Button className="btn-primary">Dashboard</Button>
               </Link>
             </Box>
-          </Heading>
-          <Box className="features">
-            <h2>Features</h2>
-            <ul>
-              <li>
-                Feature 1: Simple to use for the student and the instructor!
-              </li>
-              <li>
-                Feature 2: All you have to do is to sign-in with your Google
-                account!
-              </li>
-              <li>
-                Feature 3: Telegram notifications to keep up with the work!
-              </li>
-            </ul>
+          </Box>
+          <Box className="content">
+            <Box className="text-and-image">
+              <Box className="text-content">
+                <Heading as="h1">Welcome to NotAnotherLMS</Heading>
+                <p>
+                  Simple yet capable Learning Management System to easen the
+                  process of learning for the student and the teaching for the
+                  instructor
+                </p>
+                <Link to="/about" className="link">
+                  <Button className="learn-more-button">Learn more :)</Button>
+                </Link>
+              </Box>
+              <img
+                src={telegramImage}
+                alt="Telegram"
+                className="telegram-image"
+              />
+            </Box>
           </Box>
           <footer className="footer">
             <p>NotAnotherLMS</p>
