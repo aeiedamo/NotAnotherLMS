@@ -5,57 +5,108 @@
   align-items: center;
   padding: 20px;
 }
-
-.lectures-header {
-  margin-bottom: 20px;
-  color: azure;
-}
-
-.lectures-panel {
+.lectures-header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
   background-color: var(--color-bg-canvas, #282c34); /* Fallback color */
-  padding: 20px;
+  padding: 10px 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000; /* Ensure it stays on top */
+}
+.lectures-header {
   color: var(--color-fg-default, white); /* Fallback color */
-  border-radius: 10px;
-  margin-bottom: 20px;
-  width: 80%;
+  font-size: 1.5rem;
+  flex-grow: 1;
   text-align: center;
 }
-
+.lectures-icon-link {
+  color: var(--color-fg-default, white); /* Fallback color */
+  text-decoration: none;
+}
+.lectures-content {
+  margin-top: 80px; /* Add margin to the top of the content to avoid overlap with fixed header */
+  width: 100%;
+  padding: 20px;
+}
+.lectures-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Add spacing between items */
+}
 .lecture-item {
   background-color: var(--color-bg-subtle, #3c3f41); /* Fallback color */
-  padding: 15px;
-  margin: 10px 0;
-  border-radius: 8px;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.add-lecture-form {
-  background-color: var(--color-bg-canvas, #282c34); /* Fallback color */
   padding: 20px;
-  color: var(--color-fg-default, white); /* Fallback color */
   border-radius: 10px;
-  width: 80%;
-  text-align: center;
-  margin-top: 20px;
+  border: 1px solid var(--color-border-default, #444); /* Add border */
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* Add spacing between components in the item */
+  color: var(--color-fg-default, white); /* Ensure text is white */
 }
-
-.back-button {
-  margin-top: 20px;
+.lecture-title {
+  font-size: 1.25rem;
+  font-weight: bold;
 }
-
-.btn-small {
+.lecture-description {
+  font-size: 1rem;
+}
+.lecture-link {
+  color: var(--color-accent-fg, #61dafb); /* Fallback color */
+  text-decoration: none;
+}
+.lecture-link:hover {
+  text-decoration: underline;
+}
+.lecture-due-date {
+  font-size: 0.875rem;
+  color: var(--color-fg-muted, #888); /* Fallback color */
+}
+.lectures-btn-small {
   background-color: var(--color-btn-primary-bg, #61dafb); /* Fallback color */
   border: none;
   padding: 5px 10px;
   color: var(--color-btn-primary-text, white); /* Fallback color */
   cursor: pointer;
   font-size: 14px;
+  align-self: flex-end; /* Align the delete button to the right */
 }
-
-.delete-button {
+.lectures-delete-button {
   background-color: var(--color-btn-danger-bg, #ff4d4f); /* Fallback color */
   color: var(--color-btn-danger-text, white); /* Fallback color */
+}
+.no-lectures-text {
+  color: var(--color-fg-default, white); /* Fallback color */
+  font-size: 1.5rem;
+  text-align: center;
+  margin-top: 20px;
+  font-weight: bold;
+}
+.add-lecture-heading {
+  color: var(--color-fg-default, white); /* Fallback color */
+}
+.add-lecture-popup {
+  position: absolute;
+  top: 80px; /* Adjusted to shift the form a little lower */
+  right: 20px; /* Adjust based on the position of the "+" button */
+  background-color: var(--color-bg-canvas-bright, #3c3f41); /* Slightly brighter color */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 1001; /* Ensure it stays on top */
+}
+.add-lecture-close-button {
+  align-self: flex-end;
+  background: none;
+  border: none;
+  color: var(--color-fg-default, white); /* Fallback color */
+  cursor: pointer;
+  font-size: 1.5rem;
 }

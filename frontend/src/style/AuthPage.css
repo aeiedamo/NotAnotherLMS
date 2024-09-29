@@ -1,0 +1,73 @@
+/* src/style/AuthPage.css */
+.auth-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  padding-top: 60px; /* Add padding to avoid overlap with fixed header */
+}
+.auth-header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  background-color: var(--color-bg-canvas, #282c34); /* Fallback color */
+  padding: 10px 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000; /* Ensure it stays on top */
+}
+.auth-header {
+  color: var(--color-fg-default, white); /* Fallback color */
+  font-size: 1.5rem;
+  flex-grow: 1;
+  text-align: center;
+}
+.auth-icon-link {
+  color: var(--color-fg-default, white); /* Fallback color */
+  text-decoration: none;
+}
+.auth-form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+.auth-form {
+  background-color: var(--color-bg-canvas, #3c3f41); /* Fallback color */
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 400px; /* Set a fixed width for the form */
+}
+.form-group {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.form-label {
+  color: var(--color-fg-default, white); /* Fallback color */
+  margin-right: 10px;
+  width: 150px; /* Fixed width for labels */
+}
+.form-input {
+  flex-grow: 1;
+}
+.form-button {
+  background-color: var(--color-btn-primary-bg, #61dafb); /* Fallback color */
+  border: none;
+  padding: 10px 20px;
+  color: var(--color-btn-primary-text, white); /* Fallback color */
+  cursor: pointer;
+  font-size: 16px;
+  text-align: center;
+}

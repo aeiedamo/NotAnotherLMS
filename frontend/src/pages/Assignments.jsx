@@ -1,6 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Box, Button, Heading, Text, TextInput } from "@primer/react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faArrowLeft,
+  faPlus,
+  faTrash,
+  faTimes,
+} from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
 import "../style/Assignments.css";
 
@@ -53,44 +60,58 @@ const Assignments = () => {
 
   return (
     <Box className="assignments-page">
-      <Link to="/dashboard" className="back-button">
-        <Button className="btn-small">Back to Dashboard</Button>
-      </Link>
-      <Heading as="h1" className="assignments-header">
-        Assignments
-      </Heading>
-      <Box className="assignments-panel">
+      <Box className="header-container">
+        <Link to="/dashboard" className="icon-link">
+          <FontAwesomeIcon icon={faArrowLeft} size="2x" />
+        </Link>
+        <Heading className="header">Assignments</Heading>
+        <Button className="icon-link" onClick={() => setShowForm(!showForm)}>
+          <FontAwesomeIcon icon={faPlus} size="2x" />
+        </Button>
+      </Box>
+      <Box className="content">
         {assignments.length > 0 ? (
-          assignments.map((assignment) => (
-            <Box key={assignment.id} className="assignment-item">
-              <Heading as="h3">{assignment.title}</Heading>
-              <Text>{assignment.description}</Text>
-              <a
-                href={assignment.fileURL}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                File
-              </a>
-              <Text>Due Date: {new Date(assignment.dueDate).toLocaleString()}</Text>
-              <Button
-                className="btn-small delete-button"
-                onClick={() => deleteAssignment(assignment.id)}
-              >
-                Delete
-              </Button>
-            </Box>
-          ))
+          <Box className="assignments-list">
+            {assignments.map((assignment) => (
+              <Box key={assignment.id} className="assignment-item">
+                <Heading as="h3" className="assignment-title">
+                  {assignment.title}
+                </Heading>
+                <Text className="assignment-description">
+                  {assignment.description}
+                </Text>
+                <a
+                  href={assignment.fileURL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="assignment-link"
+                >
+                  View Assignment
+                </a>
+                <Text className="assignment-due-date">
+                  Due Date: {new Date(assignment.dueDate).toLocaleString()}
+                </Text>
+                <Button
+                  className="btn-small delete-button"
+                  onClick={() => deleteAssignment(assignment.id)}
+                >
+                  <FontAwesomeIcon icon={faTrash} />
+                </Button>
+              </Box>
+            ))}
+          </Box>
         ) : (
-          <Text>No assignments available</Text>
+          <Text className="no-assignments-text">No assignments available</Text>
         )}
       </Box>
-      <Button onClick={() => setShowForm(!showForm)}>
-        {showForm ? "Cancel" : "Add Assignment"}
-      </Button>
       {showForm && (
-        <Box className="add-assignment-form">
-          <Heading as="h2">Add New Assignment</Heading>
+        <Box className="add-assignment-popup">
+          <Button className="close-button" onClick={() => setShowForm(false)}>
+            <FontAwesomeIcon icon={faTimes} />
+          </Button>
+          <Heading as="h2" className="add-assignment-heading">
+            Add New Assignment
+          </Heading>
           <TextInput
             placeholder="Title"
             value={title}
@@ -116,7 +137,9 @@ const Assignments = () => {
             value={courseID}
             onChange={(e) => setCourseID(e.target.value)}
           />
-          <Button onClick={addAssignment}>Add Assignment</Button>
+          <Button className="done-button" onClick={addAssignment}>
+            Done
+          </Button>
         </Box>
       )}
     </Box>
@@ -124,3 +147,4 @@ const Assignments = () => {
 };
 
 export default Assignments;
+

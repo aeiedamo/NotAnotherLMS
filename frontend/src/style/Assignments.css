@@ -1,26 +1,41 @@
 /* src/style/Assignments.css */
+body {
+  background-color: #282c34;
+}
 .assignments-page {
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 20px;
 }
-
-.assignments-header {
-  margin-bottom: 20px;
-  color: azure;
-}
-
-.assignments-panel {
+.header-container  {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
   background-color: var(--color-bg-canvas, #282c34); /* Fallback color */
-  padding: 20px;
+  padding: 10px 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000; /* Ensure it stays on top */
+}
+.header {
   color: var(--color-fg-default, white); /* Fallback color */
-  border-radius: 10px;
-  margin-bottom: 20px;
-  width: 80%;
+  font-size: 1.5rem;
+  flex-grow: 1;
   text-align: center;
 }
-
+.icon-link {
+  color: var(--color-fg-default, white); /* Fallback color */
+  text-decoration: none;
+}
+.content {
+  margin-top: 80px; /* Add margin to the top of the content to avoid overlap with fixed header */
+  width: 100%;
+  padding: 20px;
+}
 .assignment-item {
   background-color: var(--color-bg-subtle, #3c3f41); /* Fallback color */
   padding: 15px;
@@ -30,22 +45,43 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  color: white; 
 }
-
-.add-assignment-form {
-  background-color: var(--color-bg-canvas, #282c34); /* Fallback color */
-  padding: 20px;
+.no-assignments-text {
   color: var(--color-fg-default, white); /* Fallback color */
-  border-radius: 10px;
-  width: 80%;
+  font-size: 1.5rem;
   text-align: center;
   margin-top: 20px;
+  font-weight: bold;
 }
-
-.back-button {
-  margin-top: 20px;
+.add-assignment-heading {
+  color: var(--color-fg-default, white); /* Fallback color */
 }
-
+.add-assignment-popup {
+  position: absolute;
+  top: 100px; /* Adjusted to shift the form a little lower */
+  right: 20px; /* Adjust based on the position of the "+" button */
+  background-color: var(--color-bg-canvas-bright, #3c3f41); /* Slightly brighter color */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 1001; /* Ensure it stays on top */
+}
+.close-button {
+  align-self: flex-end;
+  background: none;
+  border: none;
+  color: var(--color-fg-default, white); /* Fallback color */
+  cursor: pointer;
+  font-size: 1.5rem;
+}
+.form-buttons {
+  display: flex;
+  justify-content: space-between;
+}
 .btn-small {
   background-color: var(--color-btn-primary-bg, #61dafb); /* Fallback color */
   border: none;
@@ -54,8 +90,15 @@
   cursor: pointer;
   font-size: 14px;
 }
-
 .delete-button {
   background-color: var(--color-btn-danger-bg, #ff4d4f); /* Fallback color */
   color: var(--color-btn-danger-text, white); /* Fallback color */
+}
+.done-button {
+  background-color: #4a90e2; /* Darker shade for the Done button */
+  color: #ffffff; /* Ensure all text is the same degree of white */
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 14px;
 }

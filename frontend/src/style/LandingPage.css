@@ -18,8 +18,13 @@
 }
 
 .link {
-  left: 50%;
-  right: 50%;
+  margin: 0 10px; /* Add margin to space out the buttons */
+}
+
+.buttons-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
 }
 
 Button .btn-primary {
@@ -29,7 +34,7 @@ Button .btn-primary {
   color: var(--color-btn-primary-text, white); /* Fallback color */
   cursor: pointer;
   font-size: 16px;
-  position: absolute;
+  position: relative; /* Changed from absolute to relative */
 }
 
 .features {

@@ -15,12 +15,14 @@ const LandingPage = () => {
           <Heading className="header">
             <h1>Welcome to NotAnotherLMS</h1>
             <p>Simple yet capable Learning Management System</p>
-            <Link to="/auth" className="link">
-              <Button className="btn-primary">Get Started</Button>
-            </Link>
-            <Link to="/dashboard" className="link">
-              <Button className="btn-primary">Go to Dashboard</Button>
-            </Link>
+            <Box className="buttons-container">
+              <Link to="/auth" className="link">
+                <Button className="btn-primary">Get Started</Button>
+              </Link>
+              <Link to="/dashboard" className="link">
+                <Button className="btn-primary">Go to Dashboard</Button>
+              </Link>
+            </Box>
           </Heading>
           <Box className="features">
             <h2>Features</h2>
@@ -47,3 +49,4 @@ const LandingPage = () => {
 };
 
 export default LandingPage;
+
